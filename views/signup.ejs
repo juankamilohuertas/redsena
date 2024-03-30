@@ -104,7 +104,7 @@
     />
     <meta name="generator" content="Hugo 0.122.0" />
     <link rel="stylesheet" href="/sass/styles.css" />
-    <title>Signin Template · Bootstrap v5.3</title>
+    <title>Registro</title>
 
     <link
       rel="canonical"
@@ -202,6 +202,15 @@
     <link href="sign-in.css" rel="stylesheet" />
   </head>
   <body class="d-flex flex-column align-items-center py-4 bg-body-tertiary">
+    <%# error of password %>
+    <% if (message != "") { %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+    <% } %>
+     
+    
+    
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
@@ -310,34 +319,33 @@
           <h1 class="h3 mb-3 fw-normal">Por favor regístrese</h1>
         </div>
         <div class="mb-2">
-          <select
-            class="form-select"
-            name="initials"
-            aria-label="Default select example"
-          >
-            <option selected>Tipo de documento</option>
-            <option value="CC">Cédula de cuidadania</option>
-            <option value="TI">Tarjeta de identidad</option>
-            <option value="IE">Identificación extranjera</option>
-          </select>
-          <div>
-            <input
-              type="text"
-              class="form-control"
-              id="document"
-              name="document"
-              placeholder="Nº"
-            />
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect01">Opc</label>
+            <select class="form-select" id="inputGroupSelect01" name="initials">
+              <option selected>Tipo de documento</option>
+              <option value="CC">Cédula de cuidadania</option>
+              <option value="TI">Tarjeta de identidad</option>
+              <option value="IE">Identificación extranjera</option>
+            </select>
           </div>
         </div>
+        <div class="mb-2">
+          <input 
+            type="text"
+            class="form-control"
+            id="documentId"
+            name="documentId"
+            placeholder="Nº de identificación"
+          />
+        </div>
         <div class="input-group flex-nowrap mb-2">
-          <span class="input-group-text">@</span>
           <input
             type="text"
             class="form-control"
-            id="userName"
-            name="userName"
-            placeholder="Username"
+            id="email"
+            name="email"
+            required="true"
+            placeholder="Correo"
           />
         </div>
         <div class="mb-2">
@@ -358,7 +366,18 @@
             placeholder="Nuevamente la contraseña"
           />
         </div>
-        <button class="btn btn-primary w-100 py-2" type="submit">
+        <div class="form-check text-start my-3">
+          <input
+            class="check-input__signup"
+            type="checkbox"
+            value="remember-me"
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Ver contraseña
+          </label>
+        </div>
+        <button class="btn btn-success w-100 py-2" type="submit">
           Regístrarse
         </button>
         <p class="mt-5 mb-3 text-body-secondary text-center">

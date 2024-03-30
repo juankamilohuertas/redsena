@@ -298,7 +298,7 @@
     </div>
 
     <main class="form-signin w-100 m-auto">
-      <form>
+      <form action="/signin" method="post">
         <div class="text-center">
           <img
             class="mb-4"
@@ -307,16 +307,17 @@
             width="72"
             height="57"
           />
-          <h1 class="h3 mb-3 fw-normal">Por favor regístrese</h1>
+          <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
         </div>
-        <div class="form-floating">
+        <div class="input-group flex-nowrap mb-2">
+          <span class="input-group-text">@</span>
           <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            type="text"
+            class="form-control py-3"
+            id="userName"
+            name="userName"
+            placeholder="NombreDeUsuario"
           />
-          <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
           <input
@@ -325,7 +326,7 @@
             id="floatingPassword"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
+          <label for="floatingPassword">Contraseña</label>
         </div>
 
         <div class="form-check text-start my-3">
@@ -336,11 +337,11 @@
             id="flexCheckDefault"
           />
           <label class="form-check-label" for="flexCheckDefault">
-            Remember me
+            Recordarme
           </label>
         </div>
         <button class="btn btn-primary w-100 py-2" type="submit">
-          Sign in
+          Iniciar Sesión
         </button>
         <p class="mt-5 mb-3 text-body-secondary text-center">
           &copy; {redSena} 2024

@@ -5,7 +5,7 @@ const pool = mysql2.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "myapp",
+  database: "redsena",
   /* waitForConnections: true, */
   /* connectionLimit: 10,*/ // Límite de conexiones en el pool
   /* queueLimit: 0 */ // Sin límite en la cola de espera
@@ -20,8 +20,8 @@ const pool = mysql2.createPool({
   } catch (error) {
     console.log(error);
   } finally {
-    pool.end();
-    console.log("si o si")
+    console.log("pool.end()");
   }
 })();
 
+export default pool;
