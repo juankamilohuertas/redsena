@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 //settings for reading files (json/forms)
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

@@ -7,19 +7,18 @@ import checkSignin from "../controllers/utils/checkSignin.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { message: "" });
 });
 
 router.get("/signup", (req, res) => {
   res.render("signup", { message: "" });
 });
-
 router.post("/signup", checkSignup, signupControllers);
 
 router.get("/signin", (req, res) => {
-  res.render("signin");
+  res.render("signin", { message: "" });
 });
 
-router.post("/signin",checkSignin, signinControllers);
+router.post("/signin", checkSignin, signinControllers);
 
 export default router;

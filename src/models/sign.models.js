@@ -4,5 +4,5 @@ export const signupModels = async (id, email, password, date) => {
 };
 
 export const signinModels = async () => {
-  return `SELECT FROM users WHERE `;
+  return `SELECT id,email,password FROM users`;
 };
