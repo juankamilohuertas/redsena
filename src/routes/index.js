@@ -21,4 +21,8 @@ router.get("/signin", (req, res) => {
 
 router.post("/signin", checkSignin, signinControllers);
 
+router.use((req, res, next) => {
+  res.status(404).send("¡Lo siento! La página que estás buscando no existe.");
+});
+
 export default router;
