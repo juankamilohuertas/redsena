@@ -2,6 +2,7 @@
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="/themeBootstrap.js"></script>
+    <script src="/home/cheatsheet.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -343,6 +344,7 @@
                   placeholder="Leave a comment here"
                   name="message"
                   id="floatingTextarea"
+                  maxlength="200"
                 ></textarea>
                 <label for="floatingTextarea">Mensaje</label>
               </div>
@@ -373,17 +375,18 @@
                 title="Choose your color"
                 name="color"
               />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <!-- submit Form -->
+                <button type="submit" class="btn btn-primary">Publicar</button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-primary">Publicar</button>
           </div>
         </div>
       </div>
@@ -509,12 +512,20 @@
           Inicio
         </h1>
         <!-- Content Publications -->
-        <article class="my-3" id="publications"></article>
+        <article class="my-3" id="publications">
+          <h1>Publicaciones</h1>
+          <% for( let i = 0; i < titles.length; i++ ) { %>
+          <li>
+            <h2><%= titles[i] %></h2>
+            <p><%= messages[i] %></p>
+            <img src=<%= files[i] %> alt=<%= files[i] %>>
+          </li>
+          <% } %>
+        </article>
       </section>
     </div>
 
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="/home/cheatsheet.js"></script>
+    <script src="/home/publication/publication.js"></script>
   </body>
 </html>
