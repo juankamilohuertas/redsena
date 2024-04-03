@@ -2,13 +2,13 @@
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="/themeBootstrap.js"></script>
-    <script src="/home/cheatsheet.js"></script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta
       name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+      content="Juan Camilo Huertas"
     />
     <meta name="generator" content="Hugo 0.122.0" />
     <link
@@ -394,23 +394,23 @@
 
     <!-- ASIDE PANEL -->
     <aside
-      class="bd-aside sticky-xl-top text-body-secondary align-self-start mb-3 mb-xl-5 px-2 d-none"
+      class="bd-aside sticky-xl-top text-body-secondary align-self-start aside__right d-none d-xl-block"
     >
-      <h2 class="h6 pt-4 pb-3 mb-4 border-bottom d-none d-xl-block">
-        <a href="#"><i class="bi bi-house-door pe-2"></i>Inicio</a>
-      </h2>
+    <h1 class="mt-3 fs-4">
+      <a href="#">Panel</a>
+    </h1>
       <nav class="small" id="toc">
-        <ul class="list-unstyled">
-          <li class="my-2">
+        <ul class="list-unstyled m-0">
+          <li>
             <button
               type="button"
               class="btn d-inline-flex align-items-center collapsed border-0"
               data-bs-toggle="collapse"
-              aria-expanded="false"
+              aria-expanded="true"
               data-bs-target="#contents-collapse"
               aria-controls="contents-collapse"
             >
-              Recursos educativos
+              <p class="m-0">Recursos educativos</p>
             </button>
             <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
               <li class="list-unstyled">
@@ -418,11 +418,11 @@
                   type="button"
                   class="btn d-inline-flex align-items-center collapsed border-0"
                   data-bs-toggle="collapse"
-                  aria-expanded="false"
+                  aria-expanded="true"
                   data-bs-target="#contents-collapse1"
                   aria-controls="contents-collapse"
                 >
-                  Ejem. Matematicas
+                  Matematicas
                 </button>
                 <ul class="list-group collapse" id="contents-collapse1">
                   <li
@@ -506,26 +506,216 @@
       </nav>
     </aside>
     <!-- SECTION MAIN -->
-    <div id="home" class="bd-cheatsheet container-fluid bg-body">
+    <div id="home" class="bd-cheatsheet container-fluid bg-body section__main">
       <section id="content">
-        <h1 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3 fs-4">
-          Inicio
-        </h1>
-        <!-- Content Publications -->
-        <article class="my-3" id="publications">
-          <h1>Publicaciones</h1>
-          <% for( let i = 0; i < titles.length; i++ ) { %>
-          <li>
-            <h2><%= titles[i] %></h2>
-            <p><%= messages[i] %></p>
-            <img src=<%= files[i] %> alt=<%= files[i] %>>
-          </li>
-          <% } %>
+        <article id="publications">
+          <!-- ASIDE LEFT -->
+          <aside class="container-fluid d-none d-xl-block">
+            <div class="row sticky-xl-top">
+              <div class="col-12">
+                <!-- Sources of navigations -->
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Publicaciones
+                    </li>
+                  </ol>
+                </nav>
+                <!-- calendario -->
+                <div class="container m-0">
+                  <h1 class="title_calendar">Nuevos Lanzamientos</h1>
+                  <div id="calendar"></div>
+                </div>
+                <!-- Cours SENA -->
+                <div class="container text-light m-0">
+                  <h1 class="mt-4 fs-4">Cursos SENA</h1>
+
+                  <div class="mt-4 fs-6">
+                    <h2 class="fs-6">Programación y Desarrollo Web</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233059/programacion-web?nivelesFormacion=soc_1_4"
+                          >Programación Web</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233495/desarrollo-de-aplicaciones-web?nivelesFormacion=soc_1_4"
+                          >Desarrollo de Aplicaciones Web</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233534/programacion-para-la-web?nivelesFormacion=soc_1_4"
+                          >Programación para la Web</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="mt-4">
+                    <h2 class="fs-6">Diseño Gráfico y Multimedia</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233496/disenador-grafico?nivelesFormacion=soc_1_4"
+                          >Diseñador Gráfico</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233500/produccion-grafica-publicitaria?nivelesFormacion=soc_1_4"
+                          >Producción Gráfica Publicitaria</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233567/animacion-2d?nivelesFormacion=soc_1_4"
+                          >Animación 2D</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="mt-4">
+                    <h2 class="fs-6">Administración y Gestión</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233502/asistente-administrativo?nivelesFormacion=soc_1_4"
+                          >Asistente Administrativo</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233523/gestion-empresarial?nivelesFormacion=soc_1_4"
+                          >Gestión Empresarial</a
+                        >
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="https://oferta.senasofiaplus.edu.co/sofia-oferta/buscar/1233501/gestion-documental?nivelesFormacion=soc_1_4"
+                          >Gestión Documental</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!--*************** Content Publications ********************* -->
+          <div>
+            <!-- publications -->
+            <h1 class="fs-4 mb-3">Publicaciones</h1>
+            <div class="d-flex flex-column-reverse">
+              <% for( let i = 0; i < titles.length; i++ ) { %>
+              <div class="card">
+                <div class="card-body border-bottom">
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img
+                        class="border rounded"
+                        src="https://robohash.org/mycount"
+                        height="30"
+                        alt="user"
+                      />
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="card-title"><%= titles[i] %></h5>
+                      <p class="card-text m-0"><%= messages[i] %></p>
+                      <p class="card-text">
+                        <small class="text-body-secondary"
+                          ><%= dates[i] %></small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="<%= files[i] %>"
+                  class="card-img-bottom"
+                  style="object-fit: contain"
+                  height="200"
+                  alt="<%= files[i] %>"
+                />
+                <!-- ********************footer card publications************************ -->
+                <div class="p-2 border-top">
+                  <div>
+                    <div>
+                      <div class="d-inline-flex gap-1 m-0 w-100">
+                        <!-- buttom likes -->
+                        <a href="#like">
+                          <button type="button" class="btn btn-success">
+                            <i class="bi bi-check2-circle text-light"></i>
+                            <span>10k</span>
+                          </button>
+                        </a>
+
+                        <!-- buttom comment -->
+                        <a
+                          class="btn btn-primary"
+                          data-bs-toggle="collapse"
+                          href="#collapseExample"
+                          role="button"
+                          aria-expanded="false"
+                          aria-controls="collapseExample"
+                        >
+                          <i class="bi bi-chat-right-dots"></i>
+                        </a>
+                        <!--  buttom options of publications -->
+                        <div
+                          class="dropdown d-flex flex-grow-1 justify-content-end"
+                        >
+                          <button
+                            class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Opciones
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <a class="dropdown-item" href="#">Eliminar</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Ver perfil</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Denunciar</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample">
+                        <div class="card card-body p-1">
+                          <div class="form-floating">
+                            <textarea
+                              class="form-control"
+                              placeholder="Leave a comment here"
+                              id="floatingTextarea"
+                            ></textarea>
+                            <label for="floatingTextarea">Comments</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <% } %>
+            </div>
+          </div>
         </article>
       </section>
     </div>
 
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/home/publication/publication.js"></script>
+    <script src="/home/calendario.js"></script>
   </body>
 </html>

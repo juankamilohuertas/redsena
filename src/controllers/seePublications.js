@@ -3,7 +3,7 @@ export const seePublications = async (req, res) => {
   let titles = [];
   let messages = [];
   let files = [];
-  let date = [];
+  let dates = [];
 
   // receive data from data base
   try {
@@ -13,8 +13,9 @@ export const seePublications = async (req, res) => {
       titles.push(publications[i].title);
       messages.push(publications[i].message);
       files.push(publications[i].file);
+      dates.push(publications[i].date);
     }
-    res.render("index", { titles, messages, files });
+    res.render("index", { message: "", titles, messages, files, dates });
   } catch (error) {
     console.error("Error al obtener las publicaciones:", error);
     res.status(500).send("Error interno del servidor");

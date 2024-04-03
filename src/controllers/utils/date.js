@@ -33,4 +33,4 @@ const months = [
   "Diciembre",
 ];
 
-export const date = `${weekDays[weekDay]}.${dayMonth}/${months[month]}/${year}`;
+export const date = `${weekDays[weekDay]} ${dayMonth} de ${months[month]} del ${year}`;
