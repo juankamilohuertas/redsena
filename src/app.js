@@ -2,6 +2,7 @@ import express from "express";
 import router from "./routes/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import { PORT } from "./config.js";
 
 const __dirname = fileURLToPath(import.meta.resolve("../"));
 
@@ -25,9 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(router);
 
 //server
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server on port: ${port}`);
-});
 
-import "./config.js";
+app.listen(PORT, () => {
+  console.log(`Server on port: ${PORT}`);
+});
