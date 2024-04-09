@@ -4,6 +4,7 @@ import { signupModels } from "../models/sign.models.js";
 export const signupControllers = async (req, res) => {
   try {
     const { documentId, email, password, date } = req.validatedFields;
+   
     const userData = await signupModels(documentId, email, password, date);
 
     await pool.query(userData);

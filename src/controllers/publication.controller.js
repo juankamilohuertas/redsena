@@ -8,19 +8,20 @@ export const publicationController = async (req, res) => {
       res.status(404).send("Ha ocurrido un Error");
     } else {
       const { title, message, file, color } = req.infoPublication;
-      const [idPublication] = await pool.query(
-        "SELECT idPublication FROM publications"
+      const [id_publication] = await pool.query(
+        "SELECT id_publication FROM publications"
       );
 
-      const [id] = await pool.query("SELECT id FROM users");
+      const [id_user] = await pool.query("SELECT id_user FROM users");
 
+      console.log(id_user)
       await pool.query(
         await publicationsModels(
-          idPublication.length,
-          id[0].id,
+          id_publication.length,
+          id_user,
           title,
           message,
-          "https://robohash.org/img"+idPublication.length,
+          "https://robohash.org/img"+id_publication.length,
           color,
           date
         )

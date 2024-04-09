@@ -29,8 +29,9 @@ const checkSignup = async (req, res, next) => {
             "Contraseña mín 8 caracteres, sin espacios y un carácter especial",
         });
       } else {
+        
         const validatedFields = {
-          documentId: `${initials}.${documentId}`,
+          documentId: parseInt(documentId),
           email,
           password: password1,
           date,
