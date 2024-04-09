@@ -14,10 +14,10 @@ export const publicationController = async (req, res) => {
 
       const [id_user] = await pool.query("SELECT id_user FROM users");
 
-      console.log(id_user)
+  
       await pool.query(
         await publicationsModels(
-          id_publication.length,
+          id_publication.length-1,
           id_user,
           title,
           message,
@@ -26,7 +26,7 @@ export const publicationController = async (req, res) => {
           date
         )
       );
-      res.redirect("/");
+      res.redirect("/")
     }
   } catch (error) {
     console.log(error);

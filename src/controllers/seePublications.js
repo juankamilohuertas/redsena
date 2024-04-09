@@ -16,7 +16,7 @@ export const seePublications = async (req, res) => {
       files.push(publications[i].file);
       dates.push(publications[i].date);
     }
-    res.render("signin", { message: "", titles, messages, files, dates });
+    res.render("index", { message: "", titles, messages, files, dates });
   } catch (error) {
     console.error("Error al obtener las publicaciones:", error);
     res.status(500).send("Error interno del servidor");

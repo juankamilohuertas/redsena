@@ -11,17 +11,22 @@ import { autentication } from "../controllers/utils/autentication.js";
 
 const router = Router();
 //HOME
-router.get("/", seePublications);
+router.get("/", autentication,seePublications, (req, res) => {
+  const token = req.headers.cookie
+  if (token) {
+    res.render("index", { message: "", titles: "", messages: "", files: "", dates: "" });
+  } else {
+    res.render("signin",{message:""})
+  }
+});
 // REGISTER
 router.get("/signup", (req, res) => {
   res.render("signup", { message: "" });
 });
 router.post("/signup", checkSignup, signupControllers);
 // LOGIN
-router.get("/signin", autentication, (req, res) => {
-  res.render("index", { message: "", titles:"", messages:"", files:"", dates:"" });
-});
-router.post("/signin", checkSignin, signinControllers);
+
+router.post("/", checkSignin, signinControllers);
 // PUBLICATIONS
 
 router.post("/publication", checkPublication, publicationController);

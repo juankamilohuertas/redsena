@@ -27,9 +27,9 @@ export const signinControllers = async (req, res) => {
       await idUsers.map(idUsers=>{
         if([idUsers.id_user].includes(parseInt(req.loginDetails.documentId))){
 
-          const token = jwt.sign(idUsers,TOKEN_USERS)
+          const token = jwt.sign(idUsers,TOKEN_USERS,{ expiresIn: '1h' })
           res.cookie("token",token)
-          res.redirect("/signin")
+          res.redirect("/")
         }
       })
       
