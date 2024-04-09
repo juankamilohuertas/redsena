@@ -24,6 +24,7 @@ export const checkPublication = async (req, res, next) => {
       color
     }
     req.infoPublication = infoPublication;
+    
     next()
   } catch (error) {
     req.error = error;

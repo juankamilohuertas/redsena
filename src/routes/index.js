@@ -16,7 +16,7 @@ router.get("/", autentication,seePublications, (req, res) => {
   if (token) {
     res.render("index", { message: "", titles: "", messages: "", files: "", dates: "" });
   } else {
-    res.render("signin",{message:""})
+    res.render("signin",{message:"El usuario no esta registrado"})
   }
 });
 // REGISTER
@@ -29,7 +29,7 @@ router.post("/signup", checkSignup, signupControllers);
 router.post("/", checkSignin, signinControllers);
 // PUBLICATIONS
 
-router.post("/publication", checkPublication, publicationController);
+router.post("/publication",checkPublication, publicationController);
 
 //MY COUNT
 router.get("/my_count/:opc", myCount)

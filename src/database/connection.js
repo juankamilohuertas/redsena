@@ -7,21 +7,20 @@ import {
   DB_PORT,
 } from "../config.js";
 
-
 // Configurar el pool de conexiones a la base de datos
-const pool =  mysql2.createPool({
+const pool = mysql2.createPool({
   host: DB_HOST,
   user: DB_USER,
   password: DB_PASSWORD,
-  database: "",
+  database: DB_DATABASE,
   port: DB_PORT,
 });
 
 // crear la base de datos si no existe
 const createDatabaseIfNotExists = async () => {
   try {
-    const result = await pool.query('CREATE DATABASE IF NOT EXISTS redsena');
-    
+    const result = await pool.query(`CREATE DATABASE IF NOT EXISTS ${DB_DATABASE}`);
+
     console.log('Base de datos creada correctamente.');
     return result;
   } catch (error) {
@@ -30,8 +29,8 @@ const createDatabaseIfNotExists = async () => {
   }
 };
 
-
 createDatabaseIfNotExists();
+
 
 
 
@@ -66,35 +65,36 @@ createTableUsers()
   });
 
 
-  const createTablePublications = async () => {
-    try {
-      await pool.query("USE redsena")
-      // Consulta SQL para crear una tabla llamada "publications"
-      const createTableQuery = `
-        CREATE TABLE IF NOT EXISTS publications (
-          id_publication INT AUTO_INCREMENT PRIMARY KEY,
-          id_user VARCHAR(255),
-          title VARCHAR(255),
-          message VARCHAR(255),
-          file VARCHAR(255),
-          color VARCHAR(255),
-          date VARCHAR(255) 
-        )
+const createTablePublications = async () => {
+  try {
+    await pool.query("USE redsena")
+    // Consulta SQL para crear una tabla llamada "publications"
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS publications (
+        id_publication INT AUTO_INCREMENT PRIMARY KEY,
+        id_user INT, -- Columna para la clave foránea
+        title VARCHAR(255),
+        message VARCHAR(255),
+        file VARCHAR(255),
+        color VARCHAR(255),
+        date VARCHAR(255),
+        FOREIGN KEY (id_user) REFERENCES users(id_user) -- Clave foránea
+      )
       `;
-      // Ejecutar la consulta
-      await pool.query(createTableQuery);
-      console.log('Tabla publications creada correctamente.');
-    } catch (error) {
-      console.error('Error al crear la tabla:', error);
-      throw error;
-    }
-  };
-  
-  createTablePublications()
-    .catch(error => {
-      console.error('Error al crear la tabla:', error);
-    });
-  
+    // Ejecutar la consulta
+    await pool.query(createTableQuery);
+    console.log('Tabla publications creada correctamente.');
+  } catch (error) {
+    console.error('Error al crear la tabla:', error);
+    throw error;
+  }
+};
+
+createTablePublications()
+  .catch(error => {
+    console.error('Error al crear la tabla:', error);
+  });
+
 
 
 

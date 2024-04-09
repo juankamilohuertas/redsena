@@ -102,10 +102,10 @@
         <button class="navbar-toggler rounded-circle border border-0 p-0" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 
-          <% if (true) { %>
+          <% if (image != "") { %>
             <i class="bi bi-person-circle fs-3"></i>
             <% } else { %>
-              <img src="#" class="rounded-circle border border-1 img_count" width="30"
+              <img src="/assets/logoTEDSA.png" class="rounded-circle border border-1 img_count" width="30"
                 height="30" alt="mi cuenta" />
               <% } %>
 
@@ -142,7 +142,7 @@
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                    <button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button>
                   </li>
                 </ul>
               </li>
@@ -438,6 +438,7 @@
                 <div class="card-body border-bottom">
                   <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
+
                       <img class="border rounded" src="https://robohash.org/mycount" height="30" alt="user" />
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -471,8 +472,8 @@
                         </a>
 
                         <!-- buttom comment -->
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                          aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample<%=i%>" role="button"
+                          aria-expanded="false" aria-controls="collapseExample<%=i%>">
                           <i class="bi bi-chat-right-dots"></i>
                         </a>
                         <!--  buttom options of publications -->
@@ -494,7 +495,7 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="collapse" id="collapseExample">
+                      <div class="collapse" id="collapseExample<%=i%>">
                         <div class="card card-body p-1">
                           <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here"
@@ -518,6 +519,7 @@
   <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/home/publication/publication.js"></script>
   <script src="/home/calendario.js"></script>
+  <script src="/home/myCount/myCount.js"></script>
 </body>
 
 </html>

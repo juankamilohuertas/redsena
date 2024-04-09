@@ -30,6 +30,7 @@ export const signinControllers = async (req, res) => {
           const token = jwt.sign(idUsers,TOKEN_USERS,{ expiresIn: '1h' })
           res.cookie("token",token)
           res.redirect("/")
+          
         }
       })
       

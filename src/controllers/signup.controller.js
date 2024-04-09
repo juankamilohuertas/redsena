@@ -9,7 +9,7 @@ export const signupControllers = async (req, res) => {
 
     await pool.query(userData);
 
-    res.redirect("/signin");
+    res.redirect("/");
   } catch (error) {
     res.render("signup", { message: "El usuario ya esta registrado" });
     console.log(error);
