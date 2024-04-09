@@ -40,7 +40,7 @@ createDatabaseIfNotExists();
 // crear la tabla users si no existe
 const createTableUsers = async () => {
   try {
-    await pool.query("USE redsena")
+    await pool.query(`USE ${DB_DATABASE}`)
     // Consulta SQL para crear una tabla llamada "users"
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS users (
@@ -67,7 +67,7 @@ createTableUsers()
 
 const createTablePublications = async () => {
   try {
-    await pool.query("USE redsena")
+    await pool.query(`USE ${DB_DATABASE}`)
     // Consulta SQL para crear una tabla llamada "publications"
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS publications (
